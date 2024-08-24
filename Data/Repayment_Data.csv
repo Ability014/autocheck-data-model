@@ -1,4 +1,4 @@
-loan_id,payment_id,Amount_paid,Date_paid
+loan_id,payment_id,Date_paid,Amount_paid
 32u09wekjbfje,3434r409kmPAID123456,03/31/2021,100790.3333
 32u09wekjbfje,3434r409kmPAID123457,03/31/2021,100790.3333
 32u09wekjbfje,3434r409kmPAID123458,04/27/2021,100790.3333
