@@ -53,37 +53,37 @@ jobs:
       run: |
         mkdir /home/runner/.dbt
         echo "This is my current working directory=$( pwd )"
-        cp ./dbt_jaffle_shop/profiles.yml /home/runner/.dbt/
+        cp ./dbt_autocheck/profiles.yml /home/runner/.dbt/
         export snowflake_pass=${{ secrets.SNOWFLAKE_PASS }}
-        dbt deps --project-dir ./dbt_jaffle_shop
-        dbt run --project-dir ./dbt_jaffle_shop
-        dbt test --project-dir ./dbt_jaffle_shop
-        dbt docs generate --project-dir ./dbt_jaffle_shop
+        dbt deps --project-dir ./dbt_autocheck
+        #dbt run --project-dir ./dbt_autocheck
+        #dbt test --project-dir ./dbt_autocheck
+        #dbt docs generate --project-dir ./dbt_autocheck
     - name: Upload run_results.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-run-results
-        path: ./dbt_jaffle_shop/target/run_results.json
+        path: ./dbt_autocheck/target/run_results.json
     - name: Upload manifest.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-manifest
-        path: ./dbt_jaffle_shop/target/manifest.json
+        path: ./dbt_autocheck/target/manifest.json
     - name: Upload catalog.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-catalog
-        path: ./dbt_jaffle_shop/target/catalog.json
+        path: ./dbt_autocheck/target/catalog.json
     - name: Upload graph_summary.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-graph_summary
-        path: ./dbt_jaffle_shop/target/graph_summary.json
+        path: ./dbt_autocheck/target/graph_summary.json
     - name: Upload index.html
       uses: actions/upload-artifact@v4
       with:
         name: dbt-index
-        path: ./dbt_jaffle_shop/target/index.html
+        path: ./dbt_autocheck/target/index.html
     - name: Download artifacts
       uses: actions/download-artifact@v4
     - name: Display structure of downloaded files

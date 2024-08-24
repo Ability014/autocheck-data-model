@@ -39,7 +39,8 @@ for data in autocheck_data: # loops through each data objects (CSVs)
         """
             The code below loads each of the data object to the specified location as specified in your configuration
         """
-        df.to_sql(f'{data[:-4]}', \
+        tbl_name = data[:-4]
+        df.to_sql(f'{tbl_name}', \
             con=connection, \
             schema = 'RAW', \
             if_exists = 'replace', \
@@ -48,21 +49,21 @@ for data in autocheck_data: # loops through each data objects (CSVs)
         df = pd.read_csv(data) # reads the data as pandas dataframe
         df.columns = df.columns.str.lower().str.replace(' ', '_')
         print(df.head(2)) # prints the first 2 rows of the data
-        print(f'Loading temp_{data[:-4]} into snowflake') # prints a log to the console to show what the program is doing at the moment
-        df.to_sql(f'temp_{data[:-4]}', \
+        print(f'Loading temp_{tbl_name} into snowflake') # prints a log to the console to show what the program is doing at the moment
+        df.to_sql(f'temp_{tbl_name}', \
             con=connection, \
             schema = 'RAW', \
             if_exists = 'replace', \
             index = False, method='multi')
-        print(f'Loaded temp_{data[:-4]} object to the db')
+        print(f'Loaded temp_{tbl_name} object to the db')
         
-        if data[:-4].lower() == 'borrower_data':
+        if tbl_name.lower() == 'borrower_data':
             target_id = 'borrower_id'
-        elif data[:-4].lower() == 'loan_data':
+        elif tbl_name.lower() == 'loan_data':
             target_id = 'loan_id'
-        elif data[:-4].lower() == 'repayment_data':
+        elif tbl_name.lower() == 'repayment_data':
             target_id = 'payment_id'
-        elif data[:-4].lower() == 'schedule_data':
+        elif tbl_name.lower() == 'schedule_data':
             target_id = 'schedule_id'
         cols = []
         for col in df.columns:
@@ -71,16 +72,16 @@ for data in autocheck_data: # loops through each data objects (CSVs)
         src_cols = ', '.join(cols)
         columns = ', '.join(df.columns)
         merge_sql = f"""
-                    MERGE INTO RAW.{data[:-4]} AS target
-                    USING RAW.temp_{data[:-4]} AS source
+                    MERGE INTO RAW.{tbl_name} AS target
+                    USING RAW.temp_{tbl_name} AS source
                     ON target.{target_id} = source.{target_id}
                     WHEN NOT MATCHED THEN
                         INSERT ({columns}) VALUES ({src_cols});
                     """
         connection.execute(text(merge_sql))
-        print(f'Merged temp_{data[:-4]} object into {data[:-4]} object')
+        print(f'Merged temp_{tbl_name} object into {tbl_name} object')
 
-        connection.execute(text(f"DROP TABLE IF EXISTS RAW.temp_{data[:-4]}"))
+        connection.execute(text(f"DROP TABLE IF EXISTS RAW.temp_{tbl_name}"))
 
 connection.close()
 print('Loaded all data objects to the db')
