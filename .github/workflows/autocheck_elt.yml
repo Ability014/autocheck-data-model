@@ -24,7 +24,7 @@ jobs:
       with:
         python-version: '3.9'
     - name: Install dependencies
-      run: pip install sqlalchemy snowflake-sqlalchemy snowflake-connector-python pandas
+      run: pip install pandas sqlalchemy snowflake-sqlalchemy snowflake-connector-python
     - name: export all el environ variables
       run: |
         export snowflake_pass=${{ secrets.SNOWFLAKE_PASS }}
