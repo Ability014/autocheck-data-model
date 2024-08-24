@@ -20877,3 +20877,419 @@ with tables as (
 [0m16:05:30.628209 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Thinkbook 14\\.dbt', 'log_path': 'C:\\Users\\Thinkbook 14\\OneDrive - University of Lagos\\My Docs\\Data Engineering\\First DE Project\\MDS-for-Quality-Pipelines\\dbt_jaffle_shop\\logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt docs serve', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
 [0m16:05:32.040307 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fc0e1a43-ecdc-4af9-a35b-7d3edb093ccd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F63F483730>]}
 [0m16:05:32.166844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fc0e1a43-ecdc-4af9-a35b-7d3edb093ccd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F663C52070>]}
+[0m22:34:49.967427 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C1C87220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C4470D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C4470DC0>]}
+
+
+============================== 22:34:49.975892 | c2e22612-d839-46f0-9d0c-403cdb768d46 ==============================
+[0m22:34:49.975892 [info ] [MainThread]: Running with dbt=1.7.11
+[0m22:34:49.980261 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'log_format': 'default', 'write_json': 'True', 'static_parser': 'True', 'cache_selected_only': 'False', 'quiet': 'False', 'use_colors': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'no_print': 'None', 'warn_error': 'None', 'invocation_command': 'dbt docs generate --profiles-dir ./dbt_autocheck --project-dir ./dbt_autocheck', 'log_path': 'dbt_autocheck\\logs', 'indirect_selection': 'eager', 'profiles_dir': './dbt_autocheck', 'fail_fast': 'False', 'target_path': 'None', 'printer_width': '80', 'version_check': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True'}
+[0m22:34:53.390053 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c2e22612-d839-46f0-9d0c-403cdb768d46', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C0E28430>]}
+[0m22:34:53.767813 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c2e22612-d839-46f0-9d0c-403cdb768d46', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E5359A30>]}
+[0m22:34:53.779577 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m22:34:53.854841 [debug] [MainThread]: checksum: 1b58ec263fbd34ee8091684d6a2f6c1ad2902b1459e632a74eb63768af36ddb7, vars: {}, profile: , target: , version: 1.7.11
+[0m22:34:54.012774 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m22:34:54.015794 [debug] [MainThread]: previous checksum: 1b58ec263fbd34ee8091684d6a2f6c1ad2902b1459e632a74eb63768af36ddb7, current checksum: 1dc45497f44b89f86089ce57776dd02606c5e822f839572748e1735eebfd69ba
+[0m22:34:54.017936 [info ] [MainThread]: Unable to do partial parsing because profile has changed
+[0m22:34:54.021072 [info ] [MainThread]: Unable to do partial parsing because env vars used in profiles.yml have changed
+[0m22:34:54.024043 [info ] [MainThread]: Unable to do partial parsing because a project dependency has been added
+[0m22:34:54.027171 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'c2e22612-d839-46f0-9d0c-403cdb768d46', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E531A4C0>]}
+[0m22:35:00.484616 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c2e22612-d839-46f0-9d0c-403cdb768d46', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E5C4D0D0>]}
+[0m22:35:00.498284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c2e22612-d839-46f0-9d0c-403cdb768d46', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E5ABCD30>]}
+[0m22:35:00.502091 [info ] [MainThread]: Found 11 models, 8 tests, 4 sources, 0 exposures, 0 metrics, 677 macros, 0 groups, 0 semantic models
+[0m22:35:00.506265 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c2e22612-d839-46f0-9d0c-403cdb768d46', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E53FFCD0>]}
+[0m22:35:00.516583 [info ] [MainThread]: 
+[0m22:35:00.521207 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m22:35:00.532365 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_AUTOCHECK_RAW'
+[0m22:35:00.571366 [debug] [ThreadPool]: Using snowflake connection "list_AUTOCHECK_RAW"
+[0m22:35:00.574534 [debug] [ThreadPool]: On list_AUTOCHECK_RAW: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "dbt_autocheck", "target_name": "RAW", "connection_name": "list_AUTOCHECK_RAW"} */
+show terse objects in AUTOCHECK.RAW limit 10000
+[0m22:35:00.577453 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:35:06.335742 [debug] [ThreadPool]: SQL status: SUCCESS 15 in 6.0 seconds
+[0m22:35:06.338730 [debug] [ThreadPool]: On list_AUTOCHECK_RAW: Close
+[0m22:35:06.912281 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c2e22612-d839-46f0-9d0c-403cdb768d46', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E5C5C250>]}
+[0m22:35:06.916518 [info ] [MainThread]: Concurrency: 2 threads (target='RAW')
+[0m22:35:06.919823 [info ] [MainThread]: 
+[0m22:35:06.932662 [debug] [Thread-1  ]: Began running node model.dbt_autocheck.dates
+[0m22:35:06.935555 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.stg_borrowers
+[0m22:35:06.940889 [debug] [Thread-1  ]: Acquiring new snowflake connection 'model.dbt_autocheck.dates'
+[0m22:35:06.944443 [debug] [Thread-2  ]: Acquiring new snowflake connection 'model.dbt_autocheck.stg_borrowers'
+[0m22:35:06.949293 [debug] [Thread-1  ]: Began compiling node model.dbt_autocheck.dates
+[0m22:35:06.952364 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.stg_borrowers
+[0m22:35:06.981122 [debug] [Thread-1  ]: Using snowflake connection "model.dbt_autocheck.dates"
+[0m22:35:06.984147 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.stg_borrowers"
+[0m22:35:06.993962 [debug] [Thread-1  ]: On model.dbt_autocheck.dates: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "dbt_autocheck", "target_name": "RAW", "node_id": "model.dbt_autocheck.dates"} */
+select datediff(
+        day,
+        cast('2021-01-01' as timestamp),
+        cast('2025-12-31' as timestamp)
+        )
+[0m22:35:06.997843 [debug] [Thread-1  ]: Opening a new connection, currently in state init
+[0m22:35:07.006374 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_borrowers (compile): 22:35:06.982158 => 22:35:07.006071
+[0m22:35:07.008960 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.stg_borrowers
+[0m22:35:07.011968 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_borrowers (execute): 22:35:07.010960 => 22:35:07.010960
+[0m22:35:07.012966 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.stg_borrowers
+[0m22:35:07.018698 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.stg_loan_repayments
+[0m22:35:07.022713 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.stg_borrowers, now model.dbt_autocheck.stg_loan_repayments)
+[0m22:35:07.023713 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.stg_loan_repayments
+[0m22:35:07.035205 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.stg_loan_repayments"
+[0m22:35:07.038063 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_loan_repayments (compile): 22:35:07.023713 => 22:35:07.038063
+[0m22:35:07.040650 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.stg_loan_repayments
+[0m22:35:07.043623 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_loan_repayments (execute): 22:35:07.041656 => 22:35:07.042649
+[0m22:35:07.048006 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.stg_loan_repayments
+[0m22:35:07.053011 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.stg_loan_schedule
+[0m22:35:07.055866 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.stg_loan_repayments, now model.dbt_autocheck.stg_loan_schedule)
+[0m22:35:07.058672 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.stg_loan_schedule
+[0m22:35:07.068010 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.stg_loan_schedule"
+[0m22:35:07.075811 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_loan_schedule (compile): 22:35:07.061775 => 22:35:07.074815
+[0m22:35:07.078065 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.stg_loan_schedule
+[0m22:35:07.080090 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_loan_schedule (execute): 22:35:07.080090 => 22:35:07.080090
+[0m22:35:07.084384 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.stg_loan_schedule
+[0m22:35:07.086737 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.stg_loans
+[0m22:35:07.088779 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.stg_loan_schedule, now model.dbt_autocheck.stg_loans)
+[0m22:35:07.092403 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.stg_loans
+[0m22:35:07.105124 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.stg_loans"
+[0m22:35:07.109714 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_loans (compile): 22:35:07.093398 => 22:35:07.107378
+[0m22:35:07.111554 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.stg_loans
+[0m22:35:07.116275 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.stg_loans (execute): 22:35:07.114016 => 22:35:07.115034
+[0m22:35:07.122687 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.stg_loans
+[0m22:35:07.125677 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.int_borrower_repayments
+[0m22:35:07.131608 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.stg_loans, now model.dbt_autocheck.int_borrower_repayments)
+[0m22:35:07.134382 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.int_borrower_repayments
+[0m22:35:07.150046 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.int_borrower_repayments"
+[0m22:35:07.156361 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.int_borrower_repayments (compile): 22:35:07.137088 => 22:35:07.154334
+[0m22:35:07.159536 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.int_borrower_repayments
+[0m22:35:07.163294 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.int_borrower_repayments (execute): 22:35:07.161589 => 22:35:07.161589
+[0m22:35:07.168377 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.int_borrower_repayments
+[0m22:35:07.171373 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.int_borrower_loans
+[0m22:35:07.174395 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.int_borrower_repayments, now model.dbt_autocheck.int_borrower_loans)
+[0m22:35:07.176602 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.int_borrower_loans
+[0m22:35:07.187617 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.int_borrower_loans"
+[0m22:35:07.192000 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.int_borrower_loans (compile): 22:35:07.178170 => 22:35:07.190874
+[0m22:35:07.194007 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.int_borrower_loans
+[0m22:35:07.197927 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.int_borrower_loans (execute): 22:35:07.196102 => 22:35:07.196636
+[0m22:35:07.202825 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.int_borrower_loans
+[0m22:35:07.206368 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.fct_repayments
+[0m22:35:07.209853 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.int_borrower_loans, now model.dbt_autocheck.fct_repayments)
+[0m22:35:07.213156 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.fct_repayments
+[0m22:35:07.234829 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.fct_repayments"
+[0m22:35:07.239107 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.fct_repayments (compile): 22:35:07.214991 => 22:35:07.238109
+[0m22:35:07.241161 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.fct_repayments
+[0m22:35:07.254754 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.fct_repayments (execute): 22:35:07.246625 => 22:35:07.246625
+[0m22:35:07.256557 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.fct_repayments
+[0m22:35:07.261841 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.int_missed_payments
+[0m22:35:07.265503 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.fct_repayments, now model.dbt_autocheck.int_missed_payments)
+[0m22:35:07.266514 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.int_missed_payments
+[0m22:35:07.278916 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.int_missed_payments"
+[0m22:35:07.295580 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.int_missed_payments (compile): 22:35:07.269875 => 22:35:07.293576
+[0m22:35:07.298581 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.int_missed_payments
+[0m22:35:07.301581 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.int_missed_payments (execute): 22:35:07.300580 => 22:35:07.300580
+[0m22:35:07.306112 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.int_missed_payments
+[0m22:35:07.307142 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.dim_loans
+[0m22:35:07.313611 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.int_missed_payments, now model.dbt_autocheck.dim_loans)
+[0m22:35:07.316619 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.dim_loans
+[0m22:35:07.332928 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.dim_loans"
+[0m22:35:07.342854 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.dim_loans (compile): 22:35:07.318235 => 22:35:07.341605
+[0m22:35:07.345873 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.dim_loans
+[0m22:35:07.346867 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.dim_loans (execute): 22:35:07.346867 => 22:35:07.346867
+[0m22:35:07.351696 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.dim_loans
+[0m22:35:07.351696 [debug] [Thread-2  ]: Began running node test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f
+[0m22:35:07.357900 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.dim_loans, now test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f)
+[0m22:35:07.360453 [debug] [Thread-2  ]: Began compiling node test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f
+[0m22:35:07.383744 [debug] [Thread-2  ]: Writing injected SQL for node "test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f"
+[0m22:35:07.394856 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f (compile): 22:35:07.362582 => 22:35:07.392782
+[0m22:35:07.399328 [debug] [Thread-2  ]: Began executing node test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f
+[0m22:35:07.401337 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f (execute): 22:35:07.400330 => 22:35:07.400330
+[0m22:35:07.405344 [debug] [Thread-2  ]: Finished running node test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f
+[0m22:35:07.408314 [debug] [Thread-2  ]: Began running node test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f
+[0m22:35:07.413388 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.dbt_autocheck.not_null_fct_repayments_schedule_payments_key.60d799714f, now test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f)
+[0m22:35:07.417188 [debug] [Thread-2  ]: Began compiling node test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f
+[0m22:35:07.431562 [debug] [Thread-2  ]: Writing injected SQL for node "test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f"
+[0m22:35:07.440754 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f (compile): 22:35:07.418213 => 22:35:07.439744
+[0m22:35:07.443751 [debug] [Thread-2  ]: Began executing node test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f
+[0m22:35:07.447545 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f (execute): 22:35:07.446746 => 22:35:07.446746
+[0m22:35:07.451620 [debug] [Thread-2  ]: Finished running node test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f
+[0m22:35:07.453464 [debug] [Thread-2  ]: Began running node test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c
+[0m22:35:07.456644 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.dbt_autocheck.unique_fct_repayments_schedule_payments_key.a7b3b4290f, now test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c)
+[0m22:35:07.458239 [debug] [Thread-2  ]: Began compiling node test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c
+[0m22:35:07.480557 [debug] [Thread-2  ]: Writing injected SQL for node "test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c"
+[0m22:35:07.484922 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c (compile): 22:35:07.461249 => 22:35:07.483946
+[0m22:35:07.488733 [debug] [Thread-2  ]: Began executing node test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c
+[0m22:35:07.491747 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c (execute): 22:35:07.490748 => 22:35:07.490748
+[0m22:35:07.494831 [debug] [Thread-2  ]: Finished running node test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c
+[0m22:35:07.497655 [debug] [Thread-2  ]: Began running node test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0
+[0m22:35:07.501464 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.dbt_autocheck.not_null_dim_loans_loan_key.dc2e1daa8c, now test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0)
+[0m22:35:07.501464 [debug] [Thread-2  ]: Began compiling node test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0
+[0m22:35:07.524172 [debug] [Thread-2  ]: Writing injected SQL for node "test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0"
+[0m22:35:07.529145 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0 (compile): 22:35:07.505127 => 22:35:07.528138
+[0m22:35:07.532732 [debug] [Thread-2  ]: Began executing node test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0
+[0m22:35:07.534493 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0 (execute): 22:35:07.533742 => 22:35:07.533742
+[0m22:35:07.539497 [debug] [Thread-2  ]: Finished running node test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0
+[0m22:35:07.541494 [debug] [Thread-2  ]: Began running node test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a
+[0m22:35:07.546495 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.dbt_autocheck.relationships_fct_repayments_loan_key__loan_key__ref_dim_loans_.6ef41ed3a0, now test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a)
+[0m22:35:07.549467 [debug] [Thread-2  ]: Began compiling node test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a
+[0m22:35:07.567341 [debug] [Thread-2  ]: Writing injected SQL for node "test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a"
+[0m22:35:07.572550 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a (compile): 22:35:07.551472 => 22:35:07.571033
+[0m22:35:07.575791 [debug] [Thread-2  ]: Began executing node test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a
+[0m22:35:07.580352 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a (execute): 22:35:07.578878 => 22:35:07.578878
+[0m22:35:07.585559 [debug] [Thread-2  ]: Finished running node test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a
+[0m22:35:09.262104 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 2.0 seconds
+[0m22:35:09.335153 [debug] [Thread-1  ]: Writing injected SQL for node "model.dbt_autocheck.dates"
+[0m22:35:09.340435 [debug] [Thread-1  ]: Timing info for model.dbt_autocheck.dates (compile): 22:35:06.954543 => 22:35:09.339424
+[0m22:35:09.343601 [debug] [Thread-1  ]: Began executing node model.dbt_autocheck.dates
+[0m22:35:09.346355 [debug] [Thread-1  ]: Timing info for model.dbt_autocheck.dates (execute): 22:35:09.345343 => 22:35:09.345343
+[0m22:35:09.349586 [debug] [Thread-1  ]: On model.dbt_autocheck.dates: Close
+[0m22:35:09.899262 [debug] [Thread-1  ]: Finished running node model.dbt_autocheck.dates
+[0m22:35:09.906365 [debug] [Thread-2  ]: Began running node model.dbt_autocheck.dim_date
+[0m22:35:09.910144 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly test.dbt_autocheck.unique_dim_loans_loan_key.e700ab298a, now model.dbt_autocheck.dim_date)
+[0m22:35:09.912714 [debug] [Thread-2  ]: Began compiling node model.dbt_autocheck.dim_date
+[0m22:35:09.916354 [debug] [Thread-2  ]: Writing injected SQL for node "model.dbt_autocheck.dim_date"
+[0m22:35:09.927625 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.dim_date (compile): 22:35:09.914338 => 22:35:09.927625
+[0m22:35:09.933760 [debug] [Thread-2  ]: Began executing node model.dbt_autocheck.dim_date
+[0m22:35:09.935128 [debug] [Thread-2  ]: Timing info for model.dbt_autocheck.dim_date (execute): 22:35:09.935128 => 22:35:09.935128
+[0m22:35:09.939758 [debug] [Thread-2  ]: Finished running node model.dbt_autocheck.dim_date
+[0m22:35:09.943074 [debug] [Thread-1  ]: Began running node test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6
+[0m22:35:09.946233 [debug] [Thread-2  ]: Began running node test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9
+[0m22:35:09.949484 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.dates, now test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6)
+[0m22:35:09.952503 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly model.dbt_autocheck.dim_date, now test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9)
+[0m22:35:09.955233 [debug] [Thread-1  ]: Began compiling node test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6
+[0m22:35:09.957878 [debug] [Thread-2  ]: Began compiling node test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9
+[0m22:35:09.970426 [debug] [Thread-1  ]: Writing injected SQL for node "test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6"
+[0m22:35:09.983241 [debug] [Thread-2  ]: Writing injected SQL for node "test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9"
+[0m22:35:09.993343 [debug] [Thread-1  ]: Timing info for test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6 (compile): 22:35:09.959892 => 22:35:09.992334
+[0m22:35:09.993343 [debug] [Thread-1  ]: Began executing node test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6
+[0m22:35:10.001734 [debug] [Thread-1  ]: Timing info for test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6 (execute): 22:35:10.000728 => 22:35:10.000728
+[0m22:35:10.003556 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9 (compile): 22:35:09.970426 => 22:35:10.001734
+[0m22:35:10.007993 [debug] [Thread-1  ]: Finished running node test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6
+[0m22:35:10.010525 [debug] [Thread-2  ]: Began executing node test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9
+[0m22:35:10.014113 [debug] [Thread-1  ]: Began running node test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c
+[0m22:35:10.016933 [debug] [Thread-2  ]: Timing info for test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9 (execute): 22:35:10.016203 => 22:35:10.016203
+[0m22:35:10.020968 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly test.dbt_autocheck.not_null_dim_date_date_key.881d0a31b6, now test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c)
+[0m22:35:10.025353 [debug] [Thread-2  ]: Finished running node test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9
+[0m22:35:10.029321 [debug] [Thread-1  ]: Began compiling node test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c
+[0m22:35:10.034429 [debug] [Thread-1  ]: Writing injected SQL for node "test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c"
+[0m22:35:10.051130 [debug] [Thread-1  ]: Timing info for test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c (compile): 22:35:10.032330 => 22:35:10.034429
+[0m22:35:10.055429 [debug] [Thread-1  ]: Began executing node test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c
+[0m22:35:10.057277 [debug] [Thread-1  ]: Timing info for test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c (execute): 22:35:10.056449 => 22:35:10.056449
+[0m22:35:10.061239 [debug] [Thread-1  ]: Finished running node test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c
+[0m22:35:10.065546 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:35:10.068525 [debug] [MainThread]: Connection 'list_AUTOCHECK_RAW' was properly closed.
+[0m22:35:10.070546 [debug] [MainThread]: Connection 'test.dbt_autocheck.relationships_fct_repayments_date_key__date_key__ref_dim_date_.6dcf809b9c' was properly closed.
+[0m22:35:10.072011 [debug] [MainThread]: Connection 'test.dbt_autocheck.unique_dim_date_date_key.0869fd48f9' was properly closed.
+[0m22:35:10.076870 [debug] [MainThread]: Command end result
+[0m22:35:10.136967 [debug] [MainThread]: Acquiring new snowflake connection 'generate_catalog'
+[0m22:35:10.138969 [info ] [MainThread]: Building catalog
+[0m22:35:10.152108 [debug] [ThreadPool]: Acquiring new snowflake connection 'AUTOCHECK.information_schema'
+[0m22:35:10.206883 [debug] [ThreadPool]: Using snowflake connection "AUTOCHECK.information_schema"
+[0m22:35:10.210584 [debug] [ThreadPool]: On AUTOCHECK.information_schema: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "dbt_autocheck", "target_name": "RAW", "connection_name": "AUTOCHECK.information_schema"} */
+with tables as (
+            select
+        table_catalog as "table_database",
+        table_schema as "table_schema",
+        table_name as "table_name",
+        case
+            when is_dynamic = 'YES' and table_type = 'BASE TABLE' THEN 'DYNAMIC TABLE'
+            else table_type
+        end as "table_type",
+        comment as "table_comment",
+
+        -- note: this is the _role_ that owns the table
+        table_owner as "table_owner",
+
+        'Clustering Key' as "stats:clustering_key:label",
+        clustering_key as "stats:clustering_key:value",
+        'The key used to cluster this table' as "stats:clustering_key:description",
+        (clustering_key is not null) as "stats:clustering_key:include",
+
+        'Row Count' as "stats:row_count:label",
+        row_count as "stats:row_count:value",
+        'An approximate count of rows in this table' as "stats:row_count:description",
+        (row_count is not null) as "stats:row_count:include",
+
+        'Approximate Size' as "stats:bytes:label",
+        bytes as "stats:bytes:value",
+        'Approximate size of the table as reported by Snowflake' as "stats:bytes:description",
+        (bytes is not null) as "stats:bytes:include",
+
+        'Last Modified' as "stats:last_modified:label",
+        to_varchar(convert_timezone('UTC', last_altered), 'yyyy-mm-dd HH24:MI'||'UTC') as "stats:last_modified:value",
+        'The timestamp for last update/change' as "stats:last_modified:description",
+        (last_altered is not null and table_type='BASE TABLE') as "stats:last_modified:include"
+    from AUTOCHECK.INFORMATION_SCHEMA.tables
+            where (
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('repayment_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_loan_schedule')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('int_borrower_repayments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_loan_repayments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('fct_repayments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_borrowers')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('dim_date')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('dim_loans')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('loan_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_loans')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('int_borrower_loans')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('int_missed_payments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('schedule_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('borrower_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('dates')
+                )
+            )
+        ),
+        columns as (
+            select
+        table_catalog as "table_database",
+        table_schema as "table_schema",
+        table_name as "table_name",
+
+        column_name as "column_name",
+        ordinal_position as "column_index",
+        data_type as "column_type",
+        comment as "column_comment"
+    from AUTOCHECK.INFORMATION_SCHEMA.columns
+            where (
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('repayment_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_loan_schedule')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('int_borrower_repayments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_loan_repayments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('fct_repayments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_borrowers')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('dim_date')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('dim_loans')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('loan_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('stg_loans')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('int_borrower_loans')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('int_missed_payments')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('schedule_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('borrower_data')
+                )
+             or 
+                (
+                    upper("table_schema") = upper('RAW')
+                    and upper("table_name") = upper('dates')
+                )
+            )
+        )
+        select *
+    from tables
+    join columns using ("table_database", "table_schema", "table_name")
+    order by "column_index"
+[0m22:35:10.216644 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:35:17.000051 [debug] [ThreadPool]: SQL status: SUCCESS 176 in 7.0 seconds
+[0m22:35:19.969906 [debug] [ThreadPool]: On AUTOCHECK.information_schema: Close
+[0m22:35:20.929733 [info ] [MainThread]: Catalog written to C:\Users\Thinkbook 14\OneDrive - University of Lagos\My Docs\Interview\Autocheck\autocheck-data-model\dbt_autocheck\target\catalog.json
+[0m22:35:20.935735 [debug] [MainThread]: Command `dbt docs generate` succeeded at 22:35:20.935735 after 31.19 seconds
+[0m22:35:20.938728 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m22:35:20.940188 [debug] [MainThread]: Connection 'AUTOCHECK.information_schema' was properly closed.
+[0m22:35:20.942211 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C1C87220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C0E28430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E544FC40>]}
+[0m22:35:20.945346 [debug] [MainThread]: Flushing usage events
