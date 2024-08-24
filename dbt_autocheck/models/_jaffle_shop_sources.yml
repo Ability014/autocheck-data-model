@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: "This is the database for the RAW tables in Jaffle shop database"
+    database: JAFFLE_SHOP
+    schema: RAW
+    tables:
+      - name: raw_customers
+        columns:
+          - name: id
+            description: "This is the unique identifier of the customers table"
+      - name: raw_items
+      - name: raw_orders
+        columns:
+          - name: 'customer'
+            tests:
+              - relationships:
+                  to: source('jaffle_shop', 'raw_customers')
+                  field: 'id'
+      - name: raw_products
+      - name: raw_stores
+      - name: raw_supplies

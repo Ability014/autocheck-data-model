@@ -1,36 +1,89 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
+name: AutoCheck ELT Pipeline
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+env:
+  snowflake_pass: ${{ secrets.SNOWFLAKE_PASS }}
+  
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  run-extract-load-to-snowflake:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install snowflake-sqlalchemy snowflake-connector-python
+    - name: export all el environ variables
+      run: |
+        export snowflake_pass=${{ secrets.SNOWFLAKE_PASS }}
+        export snowflake_user=${{ secrets.SNOWFLAKE_USER }}
+        export snowflake_account=${{ secrets.SNOWFLAKE_ACCOUNT }}
+        export snowflake_role=${{ secrets.SNOWFLAKE_ROLE }}
+        export snowflake_wh=${{ secrets.SNOWFLAKE_WH }}
+    - name: Run EL Job
+      run: python ./scripts/python_el.py
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+  dbt-project-run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dbt
+      run: pip install dbt-snowflake
+    - name: Run dbt
+      run: |
+        mkdir /home/runner/.dbt
+        echo "This is my current working directory=$( pwd )"
+        cp ./dbt_jaffle_shop/profiles.yml /home/runner/.dbt/
+        export snowflake_pass=${{ secrets.SNOWFLAKE_PASS }}
+        dbt deps --project-dir ./dbt_jaffle_shop
+        dbt run --project-dir ./dbt_jaffle_shop
+        dbt test --project-dir ./dbt_jaffle_shop
+        dbt docs generate --project-dir ./dbt_jaffle_shop
+    - name: Upload run_results.json
+      uses: actions/upload-artifact@v4
+      with:
+        name: dbt-run-results
+        path: ./dbt_jaffle_shop/target/run_results.json
+    - name: Upload manifest.json
+      uses: actions/upload-artifact@v4
+      with:
+        name: dbt-manifest
+        path: ./dbt_jaffle_shop/target/manifest.json
+    - name: Upload catalog.json
+      uses: actions/upload-artifact@v4
+      with:
+        name: dbt-catalog
+        path: ./dbt_jaffle_shop/target/catalog.json
+    - name: Upload graph_summary.json
+      uses: actions/upload-artifact@v4
+      with:
+        name: dbt-graph_summary
+        path: ./dbt_jaffle_shop/target/graph_summary.json
+    - name: Upload index.html
+      uses: actions/upload-artifact@v4
+      with:
+        name: dbt-index
+        path: ./dbt_jaffle_shop/target/index.html
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+    - name: Display structure of downloaded files
+      run: ls -R
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.

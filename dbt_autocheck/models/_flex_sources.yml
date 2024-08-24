@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: flex
+    description: "This is the database for the RAW tables in Jaffle shop database"
+    database: orbit_mds_dev
+    schema: raw
+    tables:
+      - name: requests_approvals

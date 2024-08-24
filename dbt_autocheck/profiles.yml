@@ -1,0 +1,44 @@
+dbt_autocheck:
+  outputs:
+    MART:
+      account: ynb38656.us-east-1
+      database: AUTOCHECK
+      password: '{{ env_var(''snowflake_pass'') }}'
+      role: AIRBYTE_ADMIN
+      schema: MART
+      threads: 2
+      type: snowflake
+      user: AIRBYTE014
+      warehouse: MDS_WAREHOUSE
+    INTERMEDIATE:
+      account: ynb38656.us-east-1
+      database: AUTOCHECK
+      password: '{{ env_var(''snowflake_pass'') }}'
+      role: AIRBYTE_ADMIN
+      schema: INTERMEDIATE
+      threads: 2
+      type: snowflake
+      user: AIRBYTE014
+      warehouse: MDS_WAREHOUSE
+    STAGING:
+      account: ynb38656.us-east-1
+      database: AUTOCHECK
+      password: '{{ env_var(''snowflake_pass'') }}'
+      role: AIRBYTE_ADMIN
+      schema: STAGING
+      threads: 2
+      type: snowflake
+      user: AIRBYTE014
+      warehouse: MDS_WAREHOUSE
+    RAW:
+      account: ynb38656.us-east-1
+      database: AUTOCHECK
+      password: '{{ env_var(''snowflake_pass'') }}'
+      role: AIRBYTE_ADMIN
+      schema: RAW
+      threads: 2
+      type: snowflake
+      user: AIRBYTE014
+      warehouse: MDS_WAREHOUSE
+  target: RAW
+  

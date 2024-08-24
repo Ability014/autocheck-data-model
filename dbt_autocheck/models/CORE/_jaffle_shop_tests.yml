@@ -1,0 +1,40 @@
+models:
+    - name: dim_customers
+      columns:
+        - name: customer_key
+          tests:
+            - unique
+            - not_null
+    - name: dim_products
+      columns:
+        - name: product_key
+          tests:
+            - unique
+            - not_null
+    - name: dim_stores
+      columns:
+        - name: store_key
+          tests:
+            - unique
+            - not_null
+    - name: fact_orders
+      columns:
+        - name: orders_key
+          tests:
+            - unique
+            - not_null
+        - name: customer_key
+          tests:
+            - relationships:
+                to: ref('dim_customers')
+                field: customer_key
+        - name: product_key
+          tests:
+            - relationships:
+                to: ref('dim_products')
+                field: product_key
+        - name: store_key
+          tests:
+            - relationships:
+                to: ref('dim_stores')
+                field: store_key
