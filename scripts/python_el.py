@@ -1,5 +1,5 @@
 import pandas as pd
-from sqlalchemy import create_engine, inspect
+from sqlalchemy import create_engine, inspect, text
 import os
 import re
 
@@ -30,7 +30,7 @@ autocheck_data = os.listdir() # This assigns the list data objects available in 
 existing_tables = inspector.get_table_names()
 for data in autocheck_data: # loops through each data objects (CSVs)
     with engine.connect() as connection:
-        connection.execute(f"USE DATABASE AUTOHECK")
+        connection.execute(text(f"USE DATABASE AUTOCHECK"))
         if data[:-4] not in existing_tables:
             df = pd.read_csv(data) # reads the data as pandas dataframe
             print(df.head(2)) # prints the first 2 rows of the data
@@ -76,9 +76,9 @@ for data in autocheck_data: # loops through each data objects (CSVs)
                         WHEN NOT MATCHED THEN
                             INSERT ({columns}) VALUES ({src_cols});
                         """
-            
+            connection.execute(text(merge_sql))
             print(f'Merged temp_{data[:-4]} object into {data[:-4]} object')
 
-            connection.execute(f"DROP TABLE IF EXISTS RAW.temp_{data[:-4]}")
+            connection.execute(text(f"DROP TABLE IF EXISTS RAW.temp_{data[:-4]}"))
     
 print('Loaded all data objects to the db')
