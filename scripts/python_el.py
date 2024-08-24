@@ -41,7 +41,7 @@ for data in autocheck_data: # loops through each data objects (CSVs)
         """
         tbl_name = data[:-4]
         df.to_sql(f'{tbl_name}', \
-            con=engine, \
+            con=connection, \
             schema = 'RAW', \
             if_exists = 'replace', \
             index = False, method='multi')
@@ -51,7 +51,7 @@ for data in autocheck_data: # loops through each data objects (CSVs)
         print(df.head(2)) # prints the first 2 rows of the data
         print(f'Loading temp_{tbl_name} into snowflake') # prints a log to the console to show what the program is doing at the moment
         df.to_sql(f'temp_{tbl_name}', \
-            con=engine, \
+            con=connection, \
             schema = 'RAW', \
             if_exists = 'replace', \
             index = False, method='multi')
@@ -83,5 +83,5 @@ for data in autocheck_data: # loops through each data objects (CSVs)
 
         connection.execute(text(f"DROP TABLE IF EXISTS RAW.temp_{tbl_name}"))
 
-connection.close()
+#connection.close()
 print('Loaded all data objects to the db')
