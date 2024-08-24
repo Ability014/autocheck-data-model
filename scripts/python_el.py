@@ -33,7 +33,7 @@ for data in autocheck_data: # loops through each data objects (CSVs)
     connection.execute(text(f"USE DATABASE AUTOCHECK"))
     tbl_name = data[:-4]
     tbl_name = tbl_name.upper()
-    if tbl_name not in existing_tables:
+    if tbl_name.lower() not in existing_tables:
         df = pd.read_csv(data) # reads the data as pandas dataframe
         df.columns = df.columns.str.lower().str.replace(' ', '_')
         print(df.head(2)) # prints the first 2 rows of the data
