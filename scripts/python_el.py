@@ -52,7 +52,7 @@ for data in autocheck_data: # loops through each data objects (CSVs)
             df.to_sql(f'temp_{data[:-4]}', \
                 con=connection, \
                 schema = 'RAW', \
-                if_exists = 'append', \
+                if_exists = 'replace', \
                 index = False, method='multi')
             print(f'Loaded temp_{data[:-4]} object to the db')
             
