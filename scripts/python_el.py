@@ -16,6 +16,9 @@ connection_url = (
     f"?warehouse={snow_wh}&role={snow_role}"
 )
 
+print('This is my snowflake con')
+print(connection_url)
+
 # Create the SQLAlchemy engine
 engine = create_engine(connection_url)
 
