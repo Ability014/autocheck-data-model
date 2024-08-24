@@ -2,7 +2,7 @@
 
 
     {%- set default_schema = target.schema -%}
-    {%- if custom_schema_name is none or target.name == 'RAW' -%}
+    {%- if custom_schema_name is none or target.name != 'RAW' -%}
 
         {{ default_schema }}
 
