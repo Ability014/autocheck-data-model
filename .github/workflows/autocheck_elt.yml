@@ -37,6 +37,7 @@ jobs:
 
   dbt-project-run:
     runs-on: ubuntu-latest
+    needs: run-extract-load-to-snowflake
     steps:
     - uses: actions/checkout@v4
       with:
