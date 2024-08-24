@@ -1,5 +1,5 @@
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 import os
 import re
 
@@ -16,14 +16,18 @@ connection_url = (
     f"?warehouse={snow_wh}&role={snow_role}"
 )
 
+print('This is my snowflake con')
+print(connection_url)
+
 # Create the SQLAlchemy engine
 engine = create_engine(connection_url)
 
+inspector = inspect(engine)
 
 os.chdir("./Data")
 
 autocheck_data = os.listdir() # This assigns the list data objects available in your directory to the variable on the left
-existing_tables = engine.table_names()
+existing_tables = inspector.get_table_names()
 for data in autocheck_data: # loops through each data objects (CSVs)
     if data[:-4] not in existing_tables:
         df = pd.read_csv(data) # reads the data as pandas dataframe
