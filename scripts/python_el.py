@@ -33,6 +33,7 @@ for data in autocheck_data: # loops through each data objects (CSVs)
         connection.execute(text(f"USE DATABASE AUTOCHECK"))
         if data[:-4] not in existing_tables:
             df = pd.read_csv(data) # reads the data as pandas dataframe
+            df.columns = df.columns.str.lower().str.replace(' ', '_')
             print(df.head(2)) # prints the first 2 rows of the data
             print(f'Loading {data[:-4]} into snowflake') # prints a log to the console to show what the program is doing at the moment
             """
@@ -41,10 +42,11 @@ for data in autocheck_data: # loops through each data objects (CSVs)
             df.to_sql(f'{data[:-4]}', \
                 con=connection, \
                 schema = 'RAW', \
-                if_exists = 'append', \
+                if_exists = 'replace', \
                 index = False, method='multi')
         else:
             df = pd.read_csv(data) # reads the data as pandas dataframe
+            df.columns = df.columns.str.lower().str.replace(' ', '_')
             print(df.head(2)) # prints the first 2 rows of the data
             print(f'Loading temp_{data[:-4]} into snowflake') # prints a log to the console to show what the program is doing at the moment
             df.to_sql(f'temp_{data[:-4]}', \
@@ -63,7 +65,6 @@ for data in autocheck_data: # loops through each data objects (CSVs)
             elif data[:-4].lower() == 'schedule_data':
                 target_id = 'schedule_id'
             cols = []
-            df.columns
             for col in df.columns:
                 cols.append('source.'+col)
                 
