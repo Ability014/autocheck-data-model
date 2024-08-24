@@ -80,5 +80,6 @@ for data in autocheck_data: # loops through each data objects (CSVs)
             print(f'Merged temp_{data[:-4]} object into {data[:-4]} object')
 
             connection.execute(text(f"DROP TABLE IF EXISTS RAW.temp_{data[:-4]}"))
-    
+
+    connection.close()
 print('Loaded all data objects to the db')
