@@ -25,14 +25,13 @@ jobs:
         python-version: '3.9'
     - name: Install dependencies
       run: pip install pandas sqlalchemy snowflake-sqlalchemy snowflake-connector-python
-    - name: export all el environ variables
-      run: |
-        export snowflake_pass=${{ secrets.SNOWFLAKE_PASS }}
-        export snowflake_user=${{ secrets.SNOWFLAKE_USER }}
-        export snowflake_account=${{ secrets.SNOWFLAKE_ACCOUNT }}
-        export snowflake_role=${{ secrets.SNOWFLAKE_ROLE }}
-        export snowflake_wh=${{ secrets.SNOWFLAKE_WH }}
     - name: Run EL Job
+      env:
+        snowflake_pass: ${{ secrets.SNOWFLAKE_PASS }}
+        snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
+        snowflake_account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+        snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
+        snowflake_wh: ${{ secrets.SNOWFLAKE_WH }}
       run: python ./scripts/python_el.py
 
   dbt-project-run:
@@ -48,6 +47,8 @@ jobs:
     - name: Install dbt
       run: pip install dbt-snowflake
     - name: Run dbt
+      env:
+        snowflake_pass: ${{ secrets.SNOWFLAKE_PASS }}
       run: |
         mkdir /home/runner/.dbt
         echo "This is my current working directory=$( pwd )"
