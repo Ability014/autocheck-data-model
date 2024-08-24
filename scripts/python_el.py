@@ -31,15 +31,16 @@ existing_tables = inspector.get_table_names()
 connection = engine.connect()
 for data in autocheck_data: # loops through each data objects (CSVs)
     connection.execute(text(f"USE DATABASE AUTOCHECK"))
-    if data[:-4] not in existing_tables:
+    tbl_name = data[:-4]
+    if tbl_name not in existing_tables:
         df = pd.read_csv(data) # reads the data as pandas dataframe
         df.columns = df.columns.str.lower().str.replace(' ', '_')
         print(df.head(2)) # prints the first 2 rows of the data
-        print(f'Loading {data[:-4]} into snowflake') # prints a log to the console to show what the program is doing at the moment
+        print(f'Loading {tbl_name} into snowflake') # prints a log to the console to show what the program is doing at the moment
         """
             The code below loads each of the data object to the specified location as specified in your configuration
         """
-        tbl_name = data[:-4]
+        
         df.to_sql(f'{tbl_name}', \
             con=connection, \
             schema = 'RAW', \
