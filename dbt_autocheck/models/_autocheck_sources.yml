@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: autocheck
+    description: "This is the database for the RAW tables in Jaffle shop database"
+    database: AUTOCHECK
+    schema: RAW
+    tables:
+      - name: Borrower_Data
+        columns:
+          - name: borrower_id
+            description: "This is the unique identifier of the borrower's table"
+      - name: Loan_Data
+      - name: Repayment_Data
+      - name: Schedule_Data
