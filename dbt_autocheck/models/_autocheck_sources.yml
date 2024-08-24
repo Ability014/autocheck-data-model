@@ -6,10 +6,10 @@ sources:
     database: AUTOCHECK
     schema: RAW
     tables:
-      - name: Borrower_Data
+      - name: borrower_data
         columns:
           - name: borrower_id
             description: "This is the unique identifier of the borrower's table"
-      - name: Loan_Data
-      - name: Repayment_Data
-      - name: Schedule_Data
+      - name: loan_data
+      - name: repayment_data
+      - name: schedule_data

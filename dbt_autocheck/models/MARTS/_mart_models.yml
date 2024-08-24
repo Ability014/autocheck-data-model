@@ -1,0 +1,29 @@
+models:
+    - name: dim_loans
+      columns:
+        - name: loan_key
+          tests:
+            - unique
+            - not_null
+    - name: dim_date
+      columns:
+        - name: date_key
+          tests:
+            - unique
+            - not_null
+    - name: fct_repayments
+      columns:
+        - name: schedule_payments_key
+          tests:
+            - unique
+            - not_null
+        - name: loan_key
+          tests:
+            - relationships:
+                to: ref('dim_loans')
+                field: loan_key
+        - name: date_key
+          tests:
+            - relationships:
+                to: ref('dim_date')
+                field: date_key

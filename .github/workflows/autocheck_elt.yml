@@ -56,9 +56,15 @@ jobs:
         cp ./dbt_autocheck/profiles.yml /home/runner/.dbt/
         export snowflake_pass=${{ secrets.SNOWFLAKE_PASS }}
         dbt deps --project-dir ./dbt_autocheck
-        #dbt run --project-dir ./dbt_autocheck
-        #dbt test --project-dir ./dbt_autocheck
-        #dbt docs generate --project-dir ./dbt_autocheck
+        dbt run --project-dir ./dbt_autocheck
+        dbt test --project-dir ./dbt_autocheck
+        dbt docs generate --project-dir ./dbt_autocheck
+        cp -r ./dbt_autocheck/target/* ./Docs/
+    - name: Deploy dbt docs to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
     - name: Upload run_results.json
       uses: actions/upload-artifact@v4
       with:
