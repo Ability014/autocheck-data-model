@@ -21293,3 +21293,39 @@ with tables as (
 [0m22:35:20.940188 [debug] [MainThread]: Connection 'AUTOCHECK.information_schema' was properly closed.
 [0m22:35:20.942211 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C1C87220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206C0E28430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206E544FC40>]}
 [0m22:35:20.945346 [debug] [MainThread]: Flushing usage events
+[0m11:31:23.760314 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002683C49B5B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002683EC81880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002683EC81790>]}
+
+
+============================== 11:31:23.775480 | c82809c6-dee1-4908-b557-375f2b68dc50 ==============================
+[0m11:31:23.775480 [info ] [MainThread]: Running with dbt=1.7.11
+[0m11:31:23.783311 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'quiet': 'False', 'fail_fast': 'False', 'log_path': 'dbt_autocheck\\logs', 'warn_error': 'None', 'target_path': 'None', 'static_parser': 'True', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'profiles_dir': './dbt_autocheck', 'debug': 'False', 'use_colors': 'True', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'version_check': 'True', 'write_json': 'True', 'printer_width': '80', 'log_cache_events': 'False', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'invocation_command': 'dbt docs serve --profiles-dir ./dbt_autocheck --project-dir ./dbt_autocheck'}
+[0m11:31:37.260766 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c82809c6-dee1-4908-b557-375f2b68dc50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002685FABB310>]}
+[0m11:31:37.942228 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c82809c6-dee1-4908-b557-375f2b68dc50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002685FB598E0>]}
+[0m11:39:08.591100 [error] [MainThread]: Encountered an error:
+
+[0m11:39:08.791715 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Thinkbook 14\venv\lib\site-packages\dbt\cli\requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+  File "C:\Users\Thinkbook 14\venv\lib\site-packages\dbt\cli\requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Thinkbook 14\venv\lib\site-packages\dbt\cli\requires.py", line 169, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Thinkbook 14\venv\lib\site-packages\dbt\cli\requires.py", line 198, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Thinkbook 14\venv\lib\site-packages\dbt\cli\requires.py", line 245, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Thinkbook 14\venv\lib\site-packages\dbt\cli\main.py", line 324, in docs_serve
+    results = task.run()
+  File "C:\Users\Thinkbook 14\venv\lib\site-packages\dbt\task\serve.py", line 28, in run
+    httpd.serve_forever()
+  File "C:\Users\Thinkbook 14\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 232, in serve_forever
+    ready = selector.select(poll_interval)
+  File "C:\Users\Thinkbook 14\AppData\Local\Programs\Python\Python39\lib\selectors.py", line 324, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+  File "C:\Users\Thinkbook 14\AppData\Local\Programs\Python\Python39\lib\selectors.py", line 315, in _select
+    r, w, x = select.select(r, w, w, timeout)
+KeyboardInterrupt
+
+[0m11:39:08.830556 [debug] [MainThread]: Command `dbt docs serve` failed at 11:39:08.827930 after 465.60 seconds
+[0m11:39:08.834539 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002683C49B5B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002685FC85D30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002685FC855E0>]}
+[0m11:39:08.843286 [debug] [MainThread]: Flushing usage events
