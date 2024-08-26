@@ -60,11 +60,6 @@ jobs:
         dbt test --project-dir ./dbt_autocheck
         dbt docs generate --project-dir ./dbt_autocheck
         cp -r ./dbt_autocheck/target/* ./Docs/
-    - name: Deploy dbt docs to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.AUTOCHECK_TOKEN }}
-        publish_dir: ./Docs
     - name: Upload run_results.json
       uses: actions/upload-artifact@v4
       with:

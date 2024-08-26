@@ -1,9 +1,6 @@
 name: AutoCheck Scraper Pipeline
 on:
-  push:
-    branches:
-      - main
-
+    
   pull_request:
     branches: [ "main" ]
 
