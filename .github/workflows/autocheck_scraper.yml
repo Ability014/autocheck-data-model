@@ -1,0 +1,32 @@
+name: AutoCheck Scraper Pipeline
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+  
+jobs:
+  run-autocheck-cars45-scraper:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install pandas sqlalchemy snowflake-sqlalchemy snowflake-connector-python selenium apscheduler
+    - name: Run Scraper Job
+      env:
+        snowflake_pass: ${{ secrets.SNOWFLAKE_PASS }}
+        snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
+        snowflake_account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+        snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
+        snowflake_wh: ${{ secrets.SNOWFLAKE_WH }}
+      run: python ./scripts/web_crawler.py
