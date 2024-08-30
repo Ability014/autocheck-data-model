@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from apscheduler.schedulers.blocking import BlockingScheduler
+#from apscheduler.schedulers.blocking import BlockingScheduler
 import os
 from getpass import getpass as gp
 import json
@@ -211,12 +211,7 @@ def scrape_cars45():
 
     driver.quit()
 
-# Define the scheduling function
-def schedule_scraping():
-    scheduler = BlockingScheduler()
-    scheduler.add_job(scrape_cars45, 'interval', days=1)  # Schedule to run daily
-    scheduler.start()
 
-# Start the scheduler
+# Start the crawler
 if __name__ == "__main__":
-    schedule_scraping()
+    scrape_cars45()
