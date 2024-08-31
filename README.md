@@ -21,7 +21,7 @@ An EL scripts was designed in python to pull the source files (csv sources) and 
 
 ## Web Crawler for Car Listings
 
-A web crawler was degined to pull data from cars45.com website. This crawler pulls the image source, car brand, car amount, region, car type (foreign or local used) and other details. These information is loaded into snowflake incrementally and schduled to run daily.
+A web crawler was degined to pull data from [cars45](https://cars45.com) website. This crawler pulls the image source, car brand, car amount, region, car type (foreign or local used) and other details. These information is loaded into snowflake incrementally and schduled to run daily.
 
 ### Prerequisites
 

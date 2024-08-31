@@ -30,3 +30,10 @@ jobs:
         snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
         snowflake_wh: ${{ secrets.SNOWFLAKE_WH }}
       run: python ./scripts/web_crawler.py
+    - name: Upload log_data
+      uses: actions/upload-artifact@v4
+      with:
+        name: web-crawler-data-log
+        path: ./Data/*.csv
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
