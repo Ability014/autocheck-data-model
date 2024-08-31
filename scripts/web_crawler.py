@@ -116,7 +116,7 @@ def scrape_cars45():
                     'car_region': car_region, 'car_type': car_type, 'misc': misc}
             
             # Convert dictionary to JSON string
-            json_string = json.dumps(data, indent=4)  # `indent` is optional and formats the JSON output
+            #json_string = json.dumps(data, indent=4)  # `indent` is optional and formats the JSON output
             #test_df = pd.DataFrame({'page': 1, 'data': json_string})
             df_log = pd.DataFrame([data], index=[page])
             print(f'Appending df log for page: {page}')
@@ -221,7 +221,7 @@ def scrape_cars45():
     today = date.today()
     if len(df_log_list) > 0:
         combined_df_logs = pd.concat([dfs for dfs in df_log_list ])
-        combined_df_logs.to_csv(f'./Data/car_listing_logs_{today}.csv', index=False)
+        combined_df_logs.to_csv(f'./Data/Log/car_listing_logs_{today}.csv', index=False)
 
     driver.quit()
 
