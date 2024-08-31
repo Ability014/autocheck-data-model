@@ -9,6 +9,7 @@ import json
 from sqlalchemy import create_engine, inspect, text
 import pandas as pd
 import time
+from datetime import date
 import random
 
 # Fetching environment variables
@@ -25,7 +26,7 @@ connection_url = (
     f"?warehouse={snow_wh}&role={snow_role}"
 )
 
-# Create the SQLAlchemy engine
+# Create the SQLAlchemy engine for snowflake connection string
 engine = create_engine(connection_url)
 
 inspector = inspect(engine)
@@ -110,9 +111,10 @@ def scrape_cars45():
             print(df.head(1))
             df_list.append(df)
         else:
-            # Store data to an error log csv
+            # Store data to an error log csv if number of rows extracted within the page does not match for all attributes
             data = {'page': page, 'car_img': car_img, 'car_brand': car_name, 'car_amount': car_amount, 
                     'car_region': car_region, 'car_type': car_type, 'misc': misc}
+            
             # Convert dictionary to JSON string
             json_string = json.dumps(data, indent=4)  # `indent` is optional and formats the JSON output
             #test_df = pd.DataFrame({'page': 1, 'data': json_string})
@@ -120,11 +122,14 @@ def scrape_cars45():
             print(f'Appending df log for page: {page}')
             df_log_list.append(df_log)
 
-        if page % 10 == 0:
+        ## Load everey ten pages of web extracts to destination table
+        if page % 10 == 0 and len(df_list) > 0:
             combined_df = pd.concat([dfs for dfs in df_list ])
             print(f'Shape of dataframe to be saved: {combined_df.shape}')
             df_list = []
             connection = engine.connect()
+
+            ## Load to destination table if not exists
             if 'car_listings' not in existing_tables:
                 
                 connection.execute(text("USE DATABASE AUTOCHECK"))
@@ -137,6 +142,8 @@ def scrape_cars45():
                 connection.execute(text("COMMIT"))
                 connection.close()
             else:
+
+                ## Load a temp table to snowflake
                 connection.execute(text("USE DATABASE AUTOCHECK"))
                 connection.execute(text("BEGIN TRANSACTION"))
                 df.to_sql(f'tmp_car_listings', \
@@ -147,6 +154,7 @@ def scrape_cars45():
                 connection.execute(text("COMMIT"))
                 print(f'Loaded tmp_car_listings object to the db')
 
+                ## Perform a merge using the temp table to insert new records to destination table
                 merge_sql = f"""
                     MERGE INTO CAR_LISTING.car_listings AS target
                     USING CAR_LISTING.tmp_car_listings AS src
@@ -160,12 +168,14 @@ def scrape_cars45():
                 connection.close()
                 print(f'Merged tmp_car_listings object into car_listings object')
 
-            
-        if (pages - page) < 10 and page % 10 != 0:
+        ## Load web extract from last page to db
+        if (pages - page) < 10 and (page % 10) != 0 and len(df_list) > 0:
             combined_df = pd.concat([dfs for dfs in df_list ])
             print(f'Shape of dataframe to be saved: {combined_df.shape}')
             df_list = []
             connection = engine.connect()
+
+            ## Load to destination table if not exists
             if 'car_listings' not in existing_tables:
                 
                 connection.execute(text("USE DATABASE AUTOCHECK"))
@@ -178,6 +188,7 @@ def scrape_cars45():
                 connection.execute(text("COMMIT"))
                 connection.close()
             else:
+                ## Load a temp table to snowflake
                 connection.execute(text("USE DATABASE AUTOCHECK"))
                 connection.execute(text("BEGIN TRANSACTION"))
                 df.to_sql(f'tmp_car_listings', \
@@ -188,6 +199,7 @@ def scrape_cars45():
                 connection.execute(text("COMMIT"))
                 print(f'Loaded tmp_car_listings object to the db')
 
+                ## Perform a merge using the temp table to insert new records to destination table
                 merge_sql = f"""
                     MERGE INTO CAR_LISTING.car_listings AS target
                     USING CAR_LISTING.tmp_car_listings AS src
@@ -206,8 +218,10 @@ def scrape_cars45():
 
         page += 1
         
-    combined_df_logs = pd.concat([dfs for dfs in df_log_list ])
-    combined_df_logs.to_csv('car_listing_logs.csv', index=False)
+    today = date.today()
+    if len(df_log_list) > 0:
+        combined_df_logs = pd.concat([dfs for dfs in df_log_list ])
+        combined_df_logs.to_csv(f'./Data/car_listing_logs_{today}.csv', index=False)
 
     driver.quit()
 

@@ -19,11 +19,12 @@ connection_url = (
 print('This is my snowflake con')
 print(connection_url)
 
-# Create the SQLAlchemy engine
+# Create the SQLAlchemy engine for snowflake connection string
 engine = create_engine(connection_url)
 
 inspector = inspect(engine)
 
+## Set working directory for the source data
 os.chdir("./Data")
 
 autocheck_data = os.listdir() # This assigns the list data objects available in your directory to the variable on the left
@@ -33,6 +34,8 @@ for data in autocheck_data: # loops through each data objects (CSVs)
     connection.execute(text(f"USE DATABASE AUTOCHECK"))
     tbl_name = data[:-4]
     tbl_name = tbl_name.upper()
+
+    ## Load to destination table if not exists
     if tbl_name.lower() not in existing_tables:
         df = pd.read_csv(data) # reads the data as pandas dataframe
         df.columns = df.columns.str.lower().str.replace(' ', '_')
@@ -49,6 +52,7 @@ for data in autocheck_data: # loops through each data objects (CSVs)
             index = False, method='multi')
         connection.execute(text("COMMIT"))
     else:
+        ## Perform a merge using the temp table to insert new records to destination table
         df = pd.read_csv(data) # reads the data as pandas dataframe
         df.columns = df.columns.str.lower().str.replace(' ', '_')
         print(df.head(2)) # prints the first 2 rows of the data
