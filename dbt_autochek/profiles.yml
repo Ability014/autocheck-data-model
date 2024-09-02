@@ -1,4 +1,4 @@
-dbt_autocheck:
+dbt_autochek:
   outputs:
     MART:
       account: '{{ env_var(''snowflake_account'') }}'

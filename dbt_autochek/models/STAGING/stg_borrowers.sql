@@ -5,4 +5,4 @@ SELECT
     city,
     zip_code,
     borrower_credit_score
-FROM {{ source('autocheck', 'borrower_data') }}
+FROM {{ source('autochek', 'borrower_data') }}

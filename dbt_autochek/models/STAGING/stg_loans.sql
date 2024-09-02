@@ -9,4 +9,4 @@ SELECT
     downpayment as down_payment,
     payment_frequency,
     try_cast(maturity_date as date) as maturity_date
-FROM {{ source('autocheck', 'loan_data') }}
+FROM {{ source('autochek', 'loan_data') }}
