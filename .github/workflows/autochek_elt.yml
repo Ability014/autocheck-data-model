@@ -9,6 +9,9 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   snowflake_pass: ${{ secrets.SNOWFLAKE_PASS }}
   
