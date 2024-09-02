@@ -1,6 +1,6 @@
-# autocheck-data-model
+# autochek-data-model
 
-### This repo is dedicated to the development of AutoCheck data pipeline design, modeling and web crawler of car listings
+### This repo is dedicated to the development of autochek data pipeline design, modeling and web crawler of car listings
 
 ## ETL Pipeline design and data modeling
 
@@ -8,7 +8,7 @@
 
 ![alt text](Docs/ERD.png)
 
-The diagram above shows the logical representation of Autocheck data sources
+The diagram above shows the logical representation of autochek data sources
 
 An EL scripts was designed in python to pull the source files (csv sources) and load the raw data into a snowflake warehouse. Leveraging on this, dbt core was implemented to perform data transformation and modeling on the raw data within Snowflake in order to statisfy business analytics and answer specific business questions.
 
