@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: autocheck
+  - name: autochek
     description: "This is the database for the RAW tables in Jaffle shop database"
     database: AUTOCHECK
     schema: RAW

@@ -1,4 +1,4 @@
-name: AutoCheck ELT Pipeline
+name: autochek ELT Pipeline
 on:
   push:
     branches:
@@ -57,38 +57,42 @@ jobs:
       run: |
         mkdir /home/runner/.dbt
         echo "This is my current working directory=$( pwd )"
-        cp ./dbt_autocheck/profiles.yml /home/runner/.dbt/
+        cp ./dbt_autochek/profiles.yml /home/runner/.dbt/
         export snowflake_pass=${{ secrets.SNOWFLAKE_PASS }}
-        dbt deps --project-dir ./dbt_autocheck
-        dbt run --project-dir ./dbt_autocheck
-        dbt test --project-dir ./dbt_autocheck
-        dbt docs generate --project-dir ./dbt_autocheck
-        cp -r ./dbt_autocheck/target/* ./Docs/
+        dbt deps --project-dir ./dbt_autochek
+        dbt run --project-dir ./dbt_autochek
+        dbt test --project-dir ./dbt_autochek
+        dbt docs generate --project-dir ./dbt_autochek
+        cp -r ./dbt_autochek/target/* ./Docs/
+    - name: Deploy dbt docs
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: dbt_autochek/target
     - name: Upload run_results.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-run-results
-        path: ./dbt_autocheck/target/run_results.json
+        path: ./dbt_autochek/target/run_results.json
     - name: Upload manifest.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-manifest
-        path: ./dbt_autocheck/target/manifest.json
+        path: ./dbt_autochek/target/manifest.json
     - name: Upload catalog.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-catalog
-        path: ./dbt_autocheck/target/catalog.json
+        path: ./dbt_autochek/target/catalog.json
     - name: Upload graph_summary.json
       uses: actions/upload-artifact@v4
       with:
         name: dbt-graph_summary
-        path: ./dbt_autocheck/target/graph_summary.json
+        path: ./dbt_autochek/target/graph_summary.json
     - name: Upload index.html
       uses: actions/upload-artifact@v4
       with:
         name: dbt-index
-        path: ./dbt_autocheck/target/index.html
+        path: ./dbt_autochek/target/index.html
     - name: Download artifacts
       uses: actions/download-artifact@v4
     - name: Display structure of downloaded files
