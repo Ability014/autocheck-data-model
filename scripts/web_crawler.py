@@ -221,7 +221,7 @@ def scrape_cars45():
     today = date.today()
     if len(df_log_list) > 0:
         combined_df_logs = pd.concat([dfs for dfs in df_log_list ])
-        combined_df_logs.to_csv(f'./Data/Log/car_listing_logs_{today}.csv', index=False)
+        combined_df_logs.to_csv(f'./el_log/car_listing_logs_{today}.csv', index=False)
 
     driver.quit()
 

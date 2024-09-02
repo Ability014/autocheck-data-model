@@ -34,6 +34,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: web-crawler-data-log
-        path: ./Data/Log/*.csv
+        path: ./el_log/*.csv
     - name: Download artifacts
       uses: actions/download-artifact@v4
