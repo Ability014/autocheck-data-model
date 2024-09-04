@@ -26,7 +26,7 @@ The modeling part of this project is broken down into three layers:
 
 ![alt text](Docs/data-lineage.png)
 
-The full data model documentation and lineage can be found on this GutHub page [here](https://ability014.github.io/autochek-data-model/).
+The full data model documentation and lineage can be found on this GitHub page [here](https://ability014.github.io/autochek-data-model/).
 
 ## Web Crawler for Car Listings
 
@@ -44,5 +44,5 @@ In order to ensure credential security, all credential details were stored as gi
 
 ### Prerequisites
 
-- A github account
+- A GitHub account
 - A snowflake account is needed for a replication of this project
