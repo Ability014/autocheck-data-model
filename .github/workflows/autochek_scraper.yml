@@ -1,8 +1,9 @@
 name: AutoChek Scraper Pipeline
 on:
 
-  schedule:
-    - cron: '0 0 * * *'
+  ## Pause schedule
+  #schedule:
+  #  - cron: '0 0 * * *'
     
   pull_request:
     branches: [ "main" ]
